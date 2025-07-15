@@ -82,7 +82,7 @@ type
             if folders <> nil then
               begin
                 foreach var f in folders do
-                    result += GetFolderInfo(f);
+                  result += GetFolderInfo(f);
                 result._Folders += folders.Length;
               end;
             

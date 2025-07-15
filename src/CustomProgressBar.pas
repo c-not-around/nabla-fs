@@ -22,7 +22,7 @@ type
         ProgressBarRenderer.DrawHorizontalBar(e.Graphics, e.ClipRectangle);
       
       rect.Width  := Convert.ToInt32(rect.Width * (Value / Maximum)) - 2;
-      rect.Height := rect.Height - 2;
+      rect.Height -= 2;
       
       e.Graphics.FillRectangle(_BarBrush, 1, 1, rect.Width, rect.Height);
     end;
