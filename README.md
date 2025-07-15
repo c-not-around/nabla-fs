@@ -1,4 +1,4 @@
-# Nabla•fs
+# Nabla•Fs
 
 Software for comparing the contents of two directories
 
