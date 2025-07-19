@@ -1,2 +1,7 @@
-src/*.pcu
-src/*.pdb
+**/src/*.pcu
+**/src/*.pdb
+v2/src/fcmp.dll
+v2/src/path.h
+v2/src/fcmp/*.o
+v2/src/fcmp/*.obj
+v2/src/fcmp/*.dll

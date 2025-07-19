@@ -32,3 +32,7 @@ Paths to external callable programs `Cmder.exe`, `Notepad++.exe`, `Be.HexEditor.
 
 ![screen](https://raw.githubusercontent.com/c-not-around/nabla-fs/57846549dc99e197526507690c1a300b6dedf606/screen1.png)
 ![screen](https://raw.githubusercontent.com/c-not-around/nabla-fs/57846549dc99e197526507690c1a300b6dedf606/screen2.png)
+
+## Version 2
+
+The main change is that files are compared not only by size but also by byte-by-byte comparison of contents.
