@@ -1,5 +1,6 @@
 **/src/*.pcu
 **/src/*.pdb
+**/src/*.exe
 v2/src/fcmp.dll
 v2/src/path.h
 v2/src/fcmp/*.o

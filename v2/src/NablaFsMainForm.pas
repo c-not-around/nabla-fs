@@ -66,8 +66,8 @@ type
     private _TotalFilesCount : integer;
     private _TotalFilesWeight: int64;
     private _TotalFilesLocker: object;
-    private _ToHashList      : List<FileNode>;
-    private _ToHashListCount : integer;
+    private _ToCompare       : List<FileNode>;
+    private _ToCompareCount  : integer;
     private _ProgressTimer   : System.Timers.Timer;
     private _StartTime       : DateTime;
     private _FileIndex       : integer;
@@ -146,7 +146,7 @@ type
                         _TotalFilesCount  += 1;
                         _TotalFilesWeight += size;
                       end;
-                    _ToHashList.Add(node);
+                    _ToCompare.Add(node);
                   end
                 else
                   node.Status := CompareResult.Twins;
@@ -256,7 +256,7 @@ type
     begin
       lock _FileIndexLocker do
         begin
-          if _FileIndex < _ToHashListCount then
+          if _FileIndex < _ToCompareCount then
             begin
               result     := _FileIndex;
               _FileIndex += 1;
@@ -275,7 +275,7 @@ type
         
         while index <> -1 do
           begin
-            var node  := _ToHashList[index];
+            var node  := _ToCompare[index];
             var paths := node.FilesInfo.Paths;
             
             var res := -1;
@@ -335,7 +335,7 @@ type
       
       _TotalFilesCount  := 0;
       _TotalFilesWeight := 0;
-      _ToHashList       := new List<FileNode>();
+      _ToCompare        := new List<FileNode>();
       
       Invoke(() ->
         begin
@@ -374,7 +374,7 @@ type
         end
       );
       
-      if (not _TaskCancel) and (_ToHashList.Count > 0) then
+      if (not _TaskCancel) and (_ToCompare.Count > 0) then
         begin
           Invoke(() ->
             begin
@@ -401,11 +401,11 @@ type
           _FileIndex       := 0;
           _CompletedCount  := 0;
           _CompletedWeight := 0;
-          _ToHashListCount := _ToHashList.Count;
+          _ToCompareCount  := _ToCompare.Count;
           _CompleteLocker  := new Object();
           _FileIndexLocker := new Object();
           
-          var cores   := Math.Min({Environment.ProcessorCount div 2}4, _ToHashListCount);
+          var cores   := Math.Min({Environment.ProcessorCount div 2}4, _ToCompareCount);
           var threads := new Thread[cores];
           for var i := 0 to cores-1 do
             begin
@@ -1145,9 +1145,6 @@ type
       var path := Application.ExecutablePath;
       path := path.Substring(0, path.LastIndexOf('\') + 1) + 'path.h';
       _ExternalApps := new ExternalAppPaths(path);
-      
-      _SrcPath.Text := 'E:\Downloads\Utilits1';
-      _DstPath.Text := 'E:\Downloads\Utilits2';
       {$endregion}
     end;
     {$endregion}
