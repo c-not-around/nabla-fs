@@ -159,12 +159,15 @@ type
     
     private procedure Init();
     begin
-      _Bitmap   := new Bitmap(Width, Height);
-      _Graphics := Graphics.FromImage(_Bitmap);
-      _Graphics.SmoothingMode := SmoothingMode.AntiAlias;
-      
-      Redraw();
-      Invalidate();
+      if Width > 0 then
+        begin
+          _Bitmap   := new Bitmap(Width, Height);
+          _Graphics := Graphics.FromImage(_Bitmap);
+          _Graphics.SmoothingMode := SmoothingMode.AntiAlias;
+          
+          Redraw();
+          Invalidate();
+        end;
     end;
     {$endregion}
     
