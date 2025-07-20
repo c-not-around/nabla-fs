@@ -94,9 +94,12 @@ type
     
     private procedure SetValue(v: int64);
     begin
-      _Value := v;
-      Redraw();
-      Invalidate();
+      if v <> _Value then
+        begin
+          _Value := v;
+          Redraw();
+          Invalidate();
+        end;
     end;
     
     private procedure SetTextVisible(v: boolean);
@@ -180,7 +183,7 @@ type
       _Value       := 0;
       _TextVisible := false;
       Size         := new System.Drawing.Size(100, 20);
-      BackColor    := Color.FromArgb($FF, $F0, $F0, $F0);
+      BackColor    := Color.FromArgb($FF, $E6, $E6, $E6);
       ForeColor    := Color.Black;
       
       SetStyle(ControlStyles.AllPaintingInWmPaint, true);

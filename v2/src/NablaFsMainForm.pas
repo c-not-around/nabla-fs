@@ -946,17 +946,17 @@ type
       {$endregion}
       
       {$region PathView}
-      var _ImgList        := new ImageList();
-      _ImgList.ColorDepth := ColorDepth.Depth32Bit;
-      _ImgList.ImageSize  := new System.Drawing.Size(16, 16);
-      _ImgList.Images.Add('file',   Resources.Image('file.png'));
-      _ImgList.Images.Add('folder', Resources.Image('folder.png'));
+      var _ImageList        := new ImageList();
+      _ImageList.ColorDepth := ColorDepth.Depth32Bit;
+      _ImageList.ImageSize  := new System.Drawing.Size(16, 16);
+      _ImageList.Images.Add('file',   Resources.Image('file.png'));
+      _ImageList.Images.Add('folder', Resources.Image('folder.png'));
       
       _PathView                  := new TreeView();
       _PathView.Location         := new Point(5, _DstPath.Top+_DstPath.Height+5);
       _PathView.Size             := new System.Drawing.Size(ClientSize.Width-2*5, ClientSize.Height-_PathView.Top-5-20-5-22);
       _PathView.Anchor           := AnchorStyles.Left or AnchorStyles.Top or AnchorStyles.Right or AnchorStyles.Bottom;
-      _PathView.ImageList        := _ImgList;
+      _PathView.ImageList        := _ImageList;
       _PathView.ItemHeight       := 18;
       _PathView.ShowPlusMinus    := true;
       _PathView.Scrollable       := true;
