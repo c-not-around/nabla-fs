@@ -307,22 +307,22 @@ type
     private function SetNodesStatus(root: FolderNode): CompareResult;
     begin
       try
-        if (root.Status = CompareResult.SourceOnly) or (root.Status = CompareResult.DestinationOnly) then
-          result := CompareResult.Twins
-        else
+        if root.Status = CompareResult.None then
           begin
             result := CompareResult.Matches;
             
             foreach var node: FsNode in root.Nodes do
               begin
-                var res := node is FolderNode ? SetNodesStatus(node as FolderNode) : node.Status;
+                var status := node is FolderNode ? SetNodesStatus(node as FolderNode) : node.Status;
                 
-                if res <> CompareResult.Matches then
+                if status <> CompareResult.Matches then
                   result := CompareResult.Twins;
               end;
             
             root.Status := result;
-          end;
+          end
+        else
+          result := CompareResult.Twins;
       except on ex: Exception do
         
       end;

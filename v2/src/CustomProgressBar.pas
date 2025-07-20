@@ -183,7 +183,7 @@ type
       _Value       := 0;
       _TextVisible := false;
       Size         := new System.Drawing.Size(100, 20);
-      BackColor    := Color.FromArgb($FF, $E6, $E6, $E6);
+      BackColor    := Color.FromArgb($FF, $D8, $D8, $D8);
       ForeColor    := Color.Black;
       
       SetStyle(ControlStyles.AllPaintingInWmPaint, true);
