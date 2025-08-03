@@ -1,0 +1,7 @@
+﻿{
+	"Terminal":     "D:\\Portable\\Cmder\\Cmder.exe",
+	"HexEditor":    "D:\\Portable\\HexEditor\\Be.HexEditor.exe",
+	"Notepad":      "D:\\Portable\\Notepad++\\v7.5.6_x64\\Notepad++.exe",
+	"ThreadsCount": "/2",
+	"ChunkSize":    "32Mb"
+}

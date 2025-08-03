@@ -12,6 +12,8 @@
 {$resource res\file.png}
 {$resource res\folder.png}
 {$resource res\copy.png}
+{$resource res\srcdst.png}
+{$resource res\dstsrc.png}
 {$resource res\delete.png}
 {$resource res\rename.png}
 {$resource res\update.png}
@@ -211,7 +213,7 @@ type
       var elapsed := $'Elapsed: {dt.Hours}:{dt.Minutes:d2}:{dt.Seconds:d2}';
       var files   := $'Files: {_TotalFilesCount}';
       
-      self.Invoke(() ->
+      Invoke(() ->
         begin
           _ElapsedInfo.Text    := elapsed;
           _FilesCountInfo.Text := files;
@@ -238,7 +240,7 @@ type
       var elapsed := $'Elapsed: {dt.Hours}:{dt.Minutes:d2}:{dt.Seconds:d2}';
       var files   := $'Files: {_CompletedCount}/{_TotalFilesCount}';
       
-      self.Invoke(() ->
+      Invoke(() ->
         begin
           _ProgressBar.Value   := _CompletedWeight;
           _ElapsedInfo.Text    := elapsed;
@@ -979,13 +981,13 @@ type
       
       var _SrcToDst   := new ToolStripMenuItem();
       _SrcToDst.Text  := 'Src -> Dst'; 
-      _SrcToDst.Image := Resources.Image('copy.png');
+      _SrcToDst.Image := Resources.Image('srcdst.png');
       _SrcToDst.Click += (sender, e) -> NodeCopy(true);
       _NodeMenu.Items.Add(_SrcToDst);
       
       var _DstToSrc   := new ToolStripMenuItem();
       _DstToSrc.Text  := 'Src <- Dst'; 
-      _DstToSrc.Image := Resources.Image('copy.png');
+      _DstToSrc.Image := Resources.Image('dstsrc.png');
       _DstToSrc.Click += (sender, e) -> NodeCopy(false);
       _NodeMenu.Items.Add(_DstToSrc);
       

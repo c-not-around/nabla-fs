@@ -6,3 +6,5 @@ v2/src/path.h
 v2/src/fcmp/*.o
 v2/src/fcmp/*.obj
 v2/src/fcmp/*.dll
+v3/src/NablaFs/bin
+v3/src/NablaFs/obj
