@@ -36,3 +36,8 @@ Paths to external callable programs `Cmder.exe`, `Notepad++.exe`, `Be.HexEditor.
 ## Version 2
 
 The main change is that files are compared not only by size but also by byte-by-byte comparison of contents.
+
+## Version 3
+
+Rewritten for .NET8 due to the lack of long paths and Unicode support in file names in version 2 (.NET Framework 4.7.2).
+The comparison mechanism has been changed from P/Invoke to Unsafe LongUnroll/SSE/AVX.
